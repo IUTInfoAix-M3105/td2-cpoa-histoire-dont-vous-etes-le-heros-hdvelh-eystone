@@ -14,6 +14,8 @@ import myUtils.ErrorNaiveHandler;
  *
  */
 public class Event extends NodeMultiple {
+	private GUIManager gui;
+
 	public static final String ERROR_MSG_UNEXPECTED_END = "Sorry, for some unexpected reason the story ends here...";
 	public static final String PROMPT_ANSWER = "Answer: ";
 	public static final String WARNING_MSG_INTEGER_EXPECTED = "Please input a integer within range!";
@@ -114,7 +116,7 @@ public class Event extends NodeMultiple {
 		/* TO BE COMPLETED */
 	}
 
-	/* Methods */
+	public void run() {
 	/* TO BE COMPLETED */
 	}
 }
