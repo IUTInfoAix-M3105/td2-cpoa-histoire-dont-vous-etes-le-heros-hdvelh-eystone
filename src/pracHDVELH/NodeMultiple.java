@@ -34,7 +34,7 @@ public class NodeMultiple {
 	 * @return the {@code i}th daughter node, or {@code null} if it does not exist.
 	 */
 	public NodeMultiple getDaughter(int i) {
-		return this.daughters[i];
+		return daughters[i];
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class NodeMultiple {
 	 * @return all the daughters
 	 */
 	public NodeMultiple[] getDaughters() {
-		return this.daughters;
+		return daughters;
 	}
 
 	/**
@@ -78,14 +78,21 @@ public class NodeMultiple {
 	 * @param daughter
 	 */
 	public void addDaughter(NodeMultiple daughter) {
-		this.daughters[this.daughters.length] = daughter;
+		if (daughter == null) return;
+		int i = 0;
+		while (i < daughters.length)
+		{
+			if (daughters[i] == null) daughters[i] = daughter;
+			else i++;
+		}
+		return;
 	}
 
 	/**
 	 * @return the content data
 	 */
 	public Object getData() {
-		return this.data;
+		return data;
 	}
 
 	/**
@@ -100,7 +107,7 @@ public class NodeMultiple {
 	 *         daughter node.
 	 */
 	public boolean hasDaughters() {
-		return (this.daughters[0] != null);
+		return (daughters[0] != null);
 	}
 
 	/* Constructors */
