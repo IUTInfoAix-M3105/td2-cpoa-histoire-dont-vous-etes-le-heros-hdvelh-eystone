@@ -46,7 +46,7 @@ public class GUIManager {
   public Scanner getInputReader() {
 	return inputReader;
   }
-
+  public void setInputReader(Scanner inputReader) { this.inputReader = inputReader; };
   /**
    * Constructor. Sets the GUI to the default system IOs.
    */
