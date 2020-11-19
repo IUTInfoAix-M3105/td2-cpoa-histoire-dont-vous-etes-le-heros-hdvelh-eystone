@@ -15,7 +15,21 @@ public class Scenario {
 	private Event head;
 	private GUIManager gui;
 
-	/* TO BE COMPLETED */
+	public String run() {
+
+	}
+
+	public void setHead (Event e) {
+		head = e;
+	}
+
+	public Event getHead() {
+		return head;
+	}
+
+	public Boolean isFinal(Event e) {
+		return !e.hasDaughters();
+	}
 
 	/* MAIN */
 	public static void main(String[] args) {

@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 import jdk.jfr.Unsigned;
 import myUtils.ErrorNaiveHandler;
+import org.w3c.dom.Node;
 
 /**
  * @author prost
@@ -21,9 +22,21 @@ public class Event extends NodeMultiple {
 	private int chosenPath;
 	private String playerAnswer;
 
+	static private int lastId = -1;
+
 	public static final String ERROR_MSG_UNEXPECTED_END = "Sorry, for some unexpected reason the story ends here...";
 	public static final String PROMPT_ANSWER = "Answer: ";
 	public static final String WARNING_MSG_INTEGER_EXPECTED = "Please input a integer within range!";
+
+	public Event () {
+
+	}
+	public Event (GUIManager gui, String data) {
+		super(data);
+		this.gui = gui;
+		id = ++lastId;
+		chosenPath = -1;
+	}
 
 	/**
 	 * @return the playerAnswer
@@ -71,33 +84,33 @@ public class Event extends NodeMultiple {
 	 /**
 	 * @see pracHDVELH.NodeMultiple#getData()
 	 */
-	/*public String getData() {
-		/ * TO BE COMPLETED * /
-	}*/
+	public String getData() {
+		return getData();
+	}
 
 	/**
 	 * @see pracHDVELH.NodeMultiple#setData(Object)
 	 * @param data
 	 */
-	/*public void setData(String data) {
-		/ * TO BE COMPLETED * /
-	}*/
+	public void setData(String data) {
+		setData(data);
+	}
 
 	/**
 	 * @see pracHDVELH.NodeMultiple#getDaughter(int)
 	 */
-	/*public Event getDaughter(int i) {
-		/ * TO BE COMPLETED * /
-	}*/
+	public Event getDaughter(int i) {
+
+	}
 
 	/**
 	 * @see pracHDVELH.NodeMultiple#setDaughter(NodeMultiple, int)
 	 * @param daughter
 	 * @param i
 	 */
-	/*public void setDaughter(Event daughter, int i) {
-		/ * TO BE COMPLETED * /
-	}*/
+	public void setDaughter(Event daughter, int i) {
+
+	}
 
 	/**
 	 * @return the gui
@@ -120,8 +133,16 @@ public class Event extends NodeMultiple {
 		return id;
 	}
 
-	public void run() {
-	/* TO BE COMPLETED */
+	public int processAnswer () {
+		//a faire
+	}
+
+	public NodeMultiple run() {
+		gui.output(this.toString());
+		gui.output(PROMPT_ANSWER);
+		playerAnswer = getReader().nextLine();
+		chosenPath = processAnswer();
+		return getDaughter(chosenPath);
 	}
 }
 
